@@ -1,0 +1,29 @@
+<!-- app/views/tasks/index.html.erb -->
+<div class = p-5>
+  <h1>My Tasks</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <% if !task.completed %>
+        <li>
+          <input type="checkbox">
+          <%= link_to task_path(task.id) do %>
+            <%=task.title %> : <%= task.details %>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <input type="checkbox" checked>
+          <%= link_to task_path(task.id) do %>
+            <%=task.title %> : <%= task.details %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add a new task", new_task_path %>
+
+
+  <p>Find me in app/views/tasks/index.html.erb</p>
+</div>
+

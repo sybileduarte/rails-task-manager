@@ -1,0 +1,21 @@
+<!-- app/views/tasks/show.html.erb -->
+<h1> <%= @task.title %> Details</h1>
+<div class = "description">
+  <p> Description:</p>
+  <%= @task.details %>
+</div>
+
+<div class = "box">
+  <% if @task.completed %>
+  <p><input type="checkbox" checked> :  Task completed</p>
+  <% else %>
+  <p><input type="checkbox" > :  Task non completed </p>
+  <% end %>
+</div>
+
+<%= link_to "Update a new task", task_edit_path(@task) %>
+<%= link_to "Delete", task_destroy_path(@task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+<%= link_to "Return to Tasks", tasks_path %>
